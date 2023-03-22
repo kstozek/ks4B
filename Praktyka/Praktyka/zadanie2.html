@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obliczanie pola kwadratu</title>
+    
+    <style>
+        .title{
+            text-align: center;
+        }
+
+        .kontener{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: beige;
+            margin-top: 40px;
+        }
+
+        .obiekt{
+            position: relative;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background: purple;
+            border: 3px solid crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Obliczanie pola kwadratu: </h1>
+
+    <label>Podaj bok a: </label>
+    <input name="a" placeholder="Wprowadź długość" required type="number" step="0.01">
+
+    <br />
+    <br />
+
+    <button>Oblicz obwód!</button>
+
+    <br />
+
+    <h2>Obwód kwadratu wynosi: <span class="obwod"></span></h2>
+    <h2>Pole kwadratu wynosi: <span class="pole"></span></h2>
+
+
+    <div class="kontener">
+    </div>
+
+    <script>
+
+        const input = document.querySelector('input[name="a"]');
+        const obliczBtn = document.querySelector('button');
+        const obwodSpan = document.querySelector('.obwod');
+        const poleSpan = document.querySelector('.pole');
+        
+        
+        function obliczObwod(a) {
+            if (!a || a < 0) {
+                obwodSpan.textContent = '';
+                return null;
+            }
+            const obwod = 4 * a;
+            obwodSpan.textContent = obwod;
+            return obwod;
+        }
+        
+        
+function obliczPole(a) {
+  if (!a || a < 0) {
+    poleSpan.textContent = '';
+    return null;
+  }
+  const pole = a * a;
+  poleSpan.textContent = pole;
+  return pole;
+}
+ 
+
+obliczBtn.addEventListener('click', function() {
+  const a = parseFloat(input.value);
+  obliczObwod(a);
+});
+ 
+
+input.addEventListener('input', function() {
+  const a = parseFloat(input.value);
+  obliczPole(a);
+});
+    </script>
+</body>
+</html>

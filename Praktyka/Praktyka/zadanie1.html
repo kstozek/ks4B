@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Przelicznik temperatury</title>
+  </head>
+  <body>
+    <label>Stopnie Fahrenheit:</label>
+
+    <input type="number" id="fahrenheit" />
+
+    <br /><br />
+
+    <label>Stopnie Kelvina:</label>
+
+        <input type="number" id="tempKel" readonly />
+        <br /><br />
+
+        <label>Stopnie Celsjusza:</label>
+        <input type="number" id="tempC" readonly />
+        <br /><br />
+        
+        <button id="btn">Przelicz</button>
+
+    <script>
+      const btn = document.querySelector("#btn");
+      const fahrenheit = document.querySelector("#fahrenheit");
+      const tempKel = document.querySelector("#tempKel");
+      const tempC = document.querySelector("#tempC");
+
+      const przeliczNaKelwiny = () => {
+        const fWartosc = parseFloat(fahrenheit.value);
+        if (!isNaN(fWartosc)) {
+          const kWartosc = ((fWartosc + 459.67) * 5) / 9;
+          tempKel.value = kWartosc.toFixed(2);
+        }
+      };
+
+      const przeliczNaCelsjusze = () => {
+        const fWartosc = parseFloat(fahrenheit.value);
+        if (!isNaN(fWartosc)) {
+          const cWartosc = ((fWartosc - 32) * 5) / 9;
+          tempC.value = cWartosc.toFixed(2);
+        } else {
+          tempC.value = "";
+        }
+      };
+
+      btn.addEventListener("click", przeliczNaKelwiny);
+      fahrenheit.addEventListener("input", przeliczNaCelsjusze);
+    </script>
+  </body>
+</html>

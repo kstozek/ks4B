@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmiana koloru elementów pogrubionych</title>
+</head>
+<body>
+    <p>Lorem <strong>ipsum dolor sit</strong> amet, consectetur <strong>adipisicing</strong> elit. Nisi autem, error corporis reprehenderit <strong>beatae</strong> modi excepturi ad minus <strong>ducimus molestias enim</strong>, nihil nostrum dolorum vel iste <strong>fugit</strong> eligendi consectetur iusto?</p>
+
+    <button onmouseover="zmienKolor()" onmouseout="przywrocKolor()">Najedź na mnie!</button>
+
+    <script>
+        function zmienKolor() {
+          var strongTags = document.getElementsByTagName('strong');
+          for (var i = 0; i < strongTags.length; i++) {
+            strongTags[i].style.color = 'red';
+          }
+        }
+  
+        function przywrocKolor() {
+          var strongTags = document.getElementsByTagName('strong');
+          for (var i = 0; i < strongTags.length; i++) {
+            strongTags[i].style.color = '';
+          }
+        }
+      </script>
+</body>
+</html>
